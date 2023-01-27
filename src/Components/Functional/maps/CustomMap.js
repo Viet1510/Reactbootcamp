@@ -26,7 +26,7 @@ export default function MapApp() {
 
     useEffect(() => {
         console.log("The Map Is Initialised once more ")
-        
+        if (map.current) return; // initialize map only once
         map.current = new mapboxgl.Map({
           container: mapContainer.current,
           style: 'mapbox://styles/mapbox/streets-v12',
@@ -41,6 +41,7 @@ export default function MapApp() {
 
     return (
         <>
+        
         <button className='btn btn-secondary' onClick={onClick}>Refresh</button>
         <div>
           <div ref={mapContainer} className="map-container" />

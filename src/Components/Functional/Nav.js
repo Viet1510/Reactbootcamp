@@ -1,9 +1,28 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-
+const baseUrl="http://localhost:8080"
 
 export const NavBar = (props) => {
-    const [items, setItems] = useState(props.items)
+    const [items, setItems] = useState()
+
+    
+    useEffect(()=>{
+            (async ()=>{
+             let menuItems = await fetch("https://jsonplaceholder.typicode.com/todos")
+             console.log("heree we are calling the ",JSON.stringify(menuItems.json()));             
+            //    .then((menuItems.json()))
+            //    .then(json=>{
+            //     console.log("heree we are calling the ",json);
+            //     json.map((menuItem)=>{
+            //         setItems(...items,{text:menuItem.menuText,menuItem:menuItem.href})
+            //     });
+            //    })
+               
+            })();
+    })
+
+
+    if(!items) return <div>Loading menu items ...</div>;
 
     return (
         <>
