@@ -38,7 +38,7 @@ export const Home=()=>{
                 <LearnReact></LearnReact>
                 <Questions></Questions>
                 <Instructors></Instructors>
-                <ContactInfo></ContactInfo> 
+                <ContactInfo></ContactInfo>  
                 <Footer></Footer>
                 <SimpleRef></SimpleRef>
 
