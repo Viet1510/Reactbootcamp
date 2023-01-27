@@ -15,20 +15,20 @@ import { useEffect, useState } from "react"
 export const Home=()=>{
 
     const baseUrl="http://localhost:8080"
-    // we can build this from an API coming from spring boot
-    // .then((response.json())=>{
-    //     console.log("Menu Settings from API ", response)
-    //     response?.map((item)=>{
-    //         setMenuItems(...menuItems,{text:item.menuText,href:item.href}) 
-    //     })            
-    // })
-    // now we have assumes that we are getting this data from API
-
-    const [menuItems,setMenuItems] = useState()
-
-    async function callMenuData(){
-        
-    }
+    const [menuItems, setMenuItems] = useState()
+    let menuItemsT =[]
+    
+    useEffect(()=>{
+          async function getMyData(){
+                const response= await fetch("http://localhost:8080/uisettings/menus")
+                let json=response.json()
+                json.then(data=>{
+                    setMenuItems(data)                    
+                    console.log("All Data ",menuItems)
+                })
+            }
+            getMyData()
+    },[])
 
 
     // const menuItems=[
@@ -55,6 +55,7 @@ export const Home=()=>{
         {profile:"",name:""}
     ] */
 
+    if(!menuItems)return <div> <img src="https://pattieedel.com/wp-content/uploads/2019/02/loading-icon-animated-gif-27.gif"></img> loading....</div>
 
     return(
         <>
