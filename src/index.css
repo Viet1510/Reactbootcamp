@@ -12,7 +12,21 @@ code {
     monospace;
 }
 
-
 .map-container {
   height: 400px;
+}
+
+#container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+
+.loading-spinner{
+  height: 500px;
+  width: 500px;
+  text-align: center;
 }

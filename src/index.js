@@ -4,13 +4,63 @@ import './index.css';
 /* import App from './App';
 import reportWebVitals from './reportWebVitals';
  */
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link
+} from "react-router-dom"
 import { Home } from './pages/HomePage';
+import { BootcampDetails, Bootcamps } from './pages/Bootcamps';
+
+
+
+
+const router= createBrowserRouter([
+
+  {
+    path: "/bootcamps/:bootcampId",
+    element: (
+        <>
+          <BootcampDetails></BootcampDetails>
+          <Link to="/bootcamps/:bootcampId"></Link>
+        </>
+    )
+  },
+  {
+    path: "/",
+    element: (
+        <>
+          <Home></Home>
+          <Link to="/"></Link>
+        </>
+    )
+  },
+  {
+    path: "/bootcamps",
+    element: (
+        <>
+          <Bootcamps></Bootcamps>
+          <Link to="/bootcamps"></Link>
+        </>
+    )
+  }
+  ,
+  {
+    path: "/contactus",
+    element: (
+        <>
+          <Bootcamps></Bootcamps>
+          <Link to="/bootcamps"></Link>
+        </>
+    )
+  }
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-     <Home></Home>
+    <RouterProvider router={router}> </RouterProvider>
   </React.StrictMode>
 );
 
