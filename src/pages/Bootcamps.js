@@ -105,46 +105,5 @@ const BootCampSeaerchBar=()=>{
     )
 }
 
-const BootcampDetails=()=>{
-    // hook for taking the param s to the component
-  
 
-    let [bootcampList, setBootcampList] = useState()
-    let params = useParams();
-    
-    useEffect(() => {
-        async function getMenus() {
-
-            try {
-                const response = await fetch("http://localhost:8080/uisettings/menus")
-                let json = response.json()
-                json
-                    .then(data => {
-                        setBootcampList(data)
-                        console.log("All Data ", data)
-                    })
-            } catch (error) {
-                let array= BootcampList.BootcampList
-                console.log("D1",typeof array, array)
-                setBootcampList(array)
-                console.log("D2",typeof bootcampList, bootcampList)
-            }
-
-        }
-        getMenus() // IIF
-        console.log("Dheeraj 123",bootcampList)
-    }, [])
-    
-    
-
-    return(
-        <>
-           <Container>
-                <img src="https://elearni.wpenginepowered.com/wp-content/uploads/2014/08/course-10.jpg"></img>
-
-                
-           </Container>
-        </>
-    )
-}
-export { Bootcamps,BootcampDetails }
+export { Bootcamps }

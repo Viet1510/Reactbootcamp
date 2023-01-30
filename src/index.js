@@ -11,7 +11,8 @@ import {
   Link
 } from "react-router-dom"
 import { Home } from './pages/HomePage';
-import { BootcampDetails, Bootcamps } from './pages/Bootcamps';
+import { Bootcamps } from './pages/Bootcamps';
+import BootcampDetails from './pages/BootcampDetail'
 
 
 
@@ -22,7 +23,7 @@ const router= createBrowserRouter([
     path: "/bootcamps/:bootcampId",
     element: (
         <>
-          <BootcampDetails></BootcampDetails>
+          <BootcampDetails ></BootcampDetails>
           <Link to="/bootcamps/:bootcampId"></Link>
         </>
     )
