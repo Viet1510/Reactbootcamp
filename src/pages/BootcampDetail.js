@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BootcampData } from "../Components/BootcampData";
+import { Footer } from "../Components/Functional/Footer";
 import { HeadSection } from "../Components/Functional/HeaderSection";
 import { NavBar } from "../Components/Functional/Nav";
 import BootcampList from '../Data/bootcamp.json'
@@ -48,17 +50,17 @@ const BootcampDetails = () => {
     return (
         <>
          <NavBar items={menuItems}></NavBar>
-           
             {
                 bootcampItem.map(data => {
                     return (
                         <>
-                            <img src={data.image}></img>
+                      
+                        <BootcampData data={data}></BootcampData>
                         </>
                     )
                 })
             }
-
+        <Footer></Footer>
         </>
     )
 }
